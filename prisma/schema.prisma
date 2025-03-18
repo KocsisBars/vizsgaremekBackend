@@ -18,7 +18,7 @@ model User {
   email String @unique
   username String @unique
   password String
-  admin Boolean
+  admin Role @default(USER)
   tokens Token[]
   points Points[]
 }
@@ -36,4 +36,8 @@ model Token {
   token String @id
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId Int
+}
+enum Role {
+  USER
+  ADMIN
 }
