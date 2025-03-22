@@ -14,7 +14,7 @@ export class AuthController {
     try {
       return await this.authService.login(loginDto);
     } catch (e) {
-      throw new UnauthorizedException('Invalid email or password');
+      throw new UnauthorizedException('Invalid username or password');
     }
   }
 

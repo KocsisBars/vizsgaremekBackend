@@ -17,7 +17,7 @@ export class UsersService {
     const hashedPw = await hash(createUserDto.password);
     const newUser = await this.db.user.create({
       data: {
-        ...createUserDto,
+        username: createUserDto.username,
         password: hashedPw,
       }
     });

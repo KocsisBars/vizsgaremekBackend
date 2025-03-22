@@ -1,4 +1,4 @@
-import { IsNumber } from "class-validator";
+import { IsNumber, IsObject } from "class-validator";
 
 export class CreatePointDto {
     @IsNumber()
@@ -9,4 +9,10 @@ export class CreatePointDto {
 
     @IsNumber()
     pointsFlappyBird: number;
+    @IsObject()
+    user: {
+        connect: {
+        id: number;
+        };
+    };
 }

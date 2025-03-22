@@ -14,7 +14,7 @@ export class UsersController {
       return await this.usersService.create(createUserDto);
     } catch {
       // Részletes hibaellenőrzés
-      throw new BadRequestException('This email already exists');
+      throw new BadRequestException('This username already exists');
     }
   }
 

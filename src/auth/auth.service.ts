@@ -11,7 +11,7 @@ export class AuthService {
   async login(loginDto: LoginDto) {
     const user = await this.db.user.findUniqueOrThrow({
       where: {
-        email: loginDto.email
+        username: loginDto.username,
       }
     });
     if (await verify(user.password, loginDto.password)) {
