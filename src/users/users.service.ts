@@ -19,7 +19,7 @@ export class UsersService {
       data: {
         username: createUserDto.username,
         password: hashedPw,
-      }
+      },
     });
     delete newUser.password;
     return newUser;
