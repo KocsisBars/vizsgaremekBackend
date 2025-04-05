@@ -15,12 +15,25 @@ export class UsersService {
    */
   async create(createUserDto: CreateUserDto) {
     const hashedPw = await hash(createUserDto.password);
-    const newUser = await this.db.user.create({
-      data: {
-        username: createUserDto.username,
-        password: hashedPw,
-      },
-    });
+    const [newUser] = await this.db.$transaction([
+      this.db.user.create({
+        data: {
+          username: createUserDto.username,
+          password: hashedPw,
+        },
+      }),
+      this.db.points.create({
+        data: {
+          pointsWordle: 0,
+          pointsSnake: 0,
+          pointsFlappyBird: 0,
+          user: {
+            connect: { username: createUserDto.username },
+          },
+        },
+      }),
+    ]);
+
     delete newUser.password;
     return newUser;
   }

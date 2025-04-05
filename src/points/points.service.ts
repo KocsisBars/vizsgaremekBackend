@@ -5,11 +5,11 @@ import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class PointsService {
-  constructor(private db: PrismaService) {} 
-  
+  constructor(private db: PrismaService) {}
+
   async create(createPointDto: CreatePointDto) {
     return await this.db.points.create({
-      data: createPointDto
+      data: createPointDto,
     });
   }
 
@@ -19,20 +19,33 @@ export class PointsService {
 
   async findOne(id: number) {
     return await this.db.points.findUnique({
-      where: { id }
+      where: { id },
     });
   }
 
   async update(id: number, updatePointDto: UpdatePointDto) {
     return await this.db.points.update({
       where: { id },
-      data: updatePointDto
+      data: updatePointDto,
     });
   }
 
   remove(id: number) {
     return this.db.points.delete({
-      where: { id }
+      where: { id },
+    });
+  }
+
+  async updatePoints(userId: number, game: 'Wordle' | 'Snake' | 'FlappyBird', points: number) {
+    const fieldToUpdate = `points${game}`; 
+
+    return await this.db.points.update({
+      where: { id: userId },
+      data: {
+        [fieldToUpdate]: {
+          increment: points,
+        },
+      },
     });
   }
 }
