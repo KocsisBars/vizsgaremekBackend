@@ -28,13 +28,13 @@ model Points {
   pointsSnake Int
   pointsFlappyBird Int
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId Int
+  userId Int @unique
 }
 
 model Token {
   token String @id
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId Int
+  userId Int @unique
 }
 enum Role {
   USER
