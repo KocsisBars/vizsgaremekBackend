@@ -19,16 +19,7 @@ model User {
   password String
   admin Role @default(USER)
   tokens Token[]
-  points Points[]
-}
-
-model Points {
-  id Int @id @default(autoincrement())
-  pointsWordle Int
-  pointsSnake Int
-  pointsFlappyBird Int
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId Int
+  points Int @default(0)
 }
 
 model Token {
@@ -36,6 +27,7 @@ model Token {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId Int
 }
+
 enum Role {
   USER
   ADMIN

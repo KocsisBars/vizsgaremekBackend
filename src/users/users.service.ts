@@ -22,18 +22,7 @@ export class UsersService {
           password: hashedPw,
         },
       }),
-      this.db.points.create({
-        data: {
-          pointsWordle: 0,
-          pointsSnake: 0,
-          pointsFlappyBird: 0,
-          user: {
-            connect: { username: createUserDto.username },
-          },
-        },
-      }),
     ]);
-
     delete newUser.password;
     return newUser;
   }
@@ -78,6 +67,23 @@ export class UsersService {
   remove(id: number) {
     return this.db.user.delete({
       where: { id }
+    });
+  }
+
+  /**
+   * Adds points to a user's account.
+   * @param userId - The ID of the user to add points to.
+   * @param pointsToAdd - The number of points to add.
+   * @returns The updated user with the new points.
+   */
+  async addPoints(userId: number, pointsToAdd: number) {
+    const user = await this.db.user.findUniqueOrThrow({ where: { id: userId } });
+
+    return this.db.user.update({
+      where: { id: userId },
+      data: {
+        points: user.points + pointsToAdd,
+      },
     });
   }
 }

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, BadRequestException, UseGuards, NotFoundException } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, BadRequestException, UseGuards, NotFoundException, Req } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -16,6 +16,13 @@ export class UsersController {
       // Részletes hibaellenőrzés
       throw new BadRequestException('This username already exists');
     }
+  }
+
+  @Post('add-points')
+  @UseGuards(AuthGuard)
+  async addPoints(@Body() body: { pointsToAdd: number }, @Req() req: any) {
+    const userId = req.user.id; 
+    return this.usersService.addPoints(userId, body.pointsToAdd);
   }
 
   @Get()
