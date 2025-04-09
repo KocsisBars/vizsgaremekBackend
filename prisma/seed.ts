@@ -16,7 +16,7 @@ async function main() {
       data: {
         username: adminUsername,
         password: hashedPassword,
-        admin: 'ADMIN',
+        role: 'ADMIN',
       },
     });
     console.log('Default admin user created.');

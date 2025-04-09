@@ -7,7 +7,7 @@ import { User } from '@prisma/client';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService) { }
 
   @Post('login')
   async login(@Body() loginDto: LoginDto) {
@@ -24,5 +24,12 @@ export class AuthController {
     const user = req.user as User;
     delete user.password;
     return user;
+  }
+
+  @Get('role')
+  @UseGuards(AuthGuard('bearer'))
+  async getRole(@Req() req: any) {
+    const user = req.user as User;
+    return { role: user.role };
   }
 }
