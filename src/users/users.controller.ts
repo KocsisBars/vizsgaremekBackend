@@ -19,7 +19,7 @@ export class UsersController {
   }
 
   @Post('add-points')
-  @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard('bearer'))
   async addPoints(@Body() body: { pointsToAdd: number }, @Req() req: any) {
     const userId = req.user.id; 
     return this.usersService.addPoints(userId, body.pointsToAdd);
