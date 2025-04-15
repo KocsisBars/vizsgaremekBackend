@@ -22,40 +22,60 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Leírás
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Project setup
+## Project előkészítése
 
 ```bash
+Először is vagy zip-elve letöltjük az alkalmazást vagy pedig clone-ozzunk:
+git clone https://github.com/KocsisBars/vizsgaremekBackend.git
+
+ezek után nyissuk meg a XAMPP Control Panel alkalmazást vagy ha nincs az alábbi linken töltsük le:
+
+https://www.apachefriends.org/hu/index.html
+
+ezek után nyissuk meg a Terminal-t a bal felső sor utolsó előtti elemében és kattintsunk a new terminal-ra.
+ezek után írjuk be a következő commandokat
+
 $ npm install
+
+ellenőrízzuk hogy a program fut-e ezzel a verzióval mi a 10.8.1-es verziót használtuk
+
+ezután
+
+$ npm install argon2
+
+ezután
+
+$ npm install @nestjs/passport passport passport-http-bearer @types/passport-http-bearer
+
+ezek után létrehozunk egy .env fájlt és hasonlóképpen kitöltjük:
+
+$ DATABASE_URL="mysql://root@localhost:3306/vizsgaremekBackend"
+
+ha ez megvan megvan és elindítottuk a XAMPP-ot a következő commandot írjuk a terminalba
+
+$ npx prisma db push
+
+ezzel létrehoztuk az adatbázist
+
+ezek után töltsük fel a teszt adatokat a következő commandal
+
+$ npx prisma db seed
+
+ezzel kész is van a projektnek az előkészítése
+
 ```
 
-## Compile and run the project
+## Projekt indítása
 
 ```bash
-# development
-$ npm run start
+Ha ezt a kódot beírjuk a backend alkalmazásunknak futni kéne
 
-# watch mode
 $ npm run start:dev
 
-# production mode
-$ npm run start:prod
-```
-
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
 
 ## Resources
