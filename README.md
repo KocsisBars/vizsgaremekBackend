@@ -74,6 +74,12 @@ $ npx prisma db seed
 ezzel két teszt felhasználót kapunk egy ADMIN felhasználót aminek a Felhasználóneve: admin , Jelszava pedig: Adminpass123!
 és egy USER felhasználót aminek a Felhasználóneve: Proba1 , Jelszava pedig: Proba123!
 
+ha szeretnénk a Swagger-ben adatokat tesztelni akkor még ezt is be kell írnunk
+
+$ npm i @nestjs/swagger@8.1.1
+
+ezzel a http://localhost:3000/apidoc#/ on tudjuk ezt megtenni
+
 ezzel kész is van a projektnek az előkészítése
 
 ```
