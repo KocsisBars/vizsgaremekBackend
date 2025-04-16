@@ -23,6 +23,26 @@ async function main() {
   } else {
     console.log('Admin user already exists.');
   }
+
+  const probaUsername = 'Proba1';
+  const probaExists = await prisma.user.findUnique({
+    where: { username: probaUsername },
+  });
+
+  if (!probaExists) {
+    const hashedPassword = await argon2.hash('Proba123!');
+
+    await prisma.user.create({
+      data: {
+        username: probaUsername,
+        password: hashedPassword,
+        role: 'USER',
+      },
+    });
+    console.log('Proba1 user created.');
+  } else {
+    console.log('Proba1 user already exists.');
+  }
 }
 
 main()
