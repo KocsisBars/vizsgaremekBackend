@@ -65,6 +65,9 @@ ezek után töltsük fel a teszt adatokat a következő commandal
 
 $ npx prisma db seed
 
+ezzel két teszt felhasználót kapunk egy ADMIN felhasználót aminek a Felhasználóneve: admin , Jelszava pedig: Adminpass123!
+és egy USER felhasználót aminek a Felhasználóneve: Proba1 , Jelszava pedig: Proba123!
+
 ezzel kész is van a projektnek az előkészítése
 
 ```
