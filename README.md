@@ -59,7 +59,7 @@ $ npm install @nestjs/passport passport passport-http-bearer @types/passport-htt
 
 ezek után létrehozunk egy .env fájlt és hasonlóképpen kitöltjük:
 
-$ DATABASE_URL="mysql://root@localhost:3306/vizsgaremekBackend"
+$ DATABASE_URL="mysql://root@localhost:3306/backendAuth"
 
 ha ez megvan megvan és elindítottuk a XAMPP-ot a következő commandot írjuk a terminalba
 
