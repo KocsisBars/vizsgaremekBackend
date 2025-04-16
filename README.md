@@ -29,12 +29,18 @@
 ## Project előkészítése
 
 ```bash
-Először is vagy zip-elve letöltjük az alkalmazást vagy pedig clone-ozzunk:
+Először is töltsük Visual Studio Code alkalmazást az alábbi linken:
+
+https://code.visualstudio.com/
+
+utána zip-elve letöltjük az alkalmazást vagy pedig clone-ozzunk:
 git clone https://github.com/KocsisBars/vizsgaremekBackend.git
 
 ezek után nyissuk meg a XAMPP Control Panel alkalmazást vagy ha nincs az alábbi linken töltsük le:
 
 https://www.apachefriends.org/hu/index.html
+
+ha ezt letöltöttük az Apache és a MySQL melleti Start gombra kattintsunk rá ezzel elindítjuk az adatbázist.
 
 ezek után nyissuk meg a Terminal-t a bal felső sor utolsó előtti elemében és kattintsunk a new terminal-ra.
 ezek után írjuk be a következő commandokat
