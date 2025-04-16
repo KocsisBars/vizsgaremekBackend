@@ -29,12 +29,18 @@
 ## Project előkészítése
 
 ```bash
-Először is vagy zip-elve letöltjük az alkalmazást vagy pedig clone-ozzunk:
+Először is töltsük Visual Studio Code alkalmazást az alábbi linken:
+
+https://code.visualstudio.com/
+
+utána zip-elve letöltjük az alkalmazást vagy pedig clone-ozzunk:
 git clone https://github.com/KocsisBars/vizsgaremekBackend.git
 
 ezek után nyissuk meg a XAMPP Control Panel alkalmazást vagy ha nincs az alábbi linken töltsük le:
 
 https://www.apachefriends.org/hu/index.html
+
+ha ezt letöltöttük az Apache és a MySQL melleti Start gombra kattintsunk rá ezzel elindítjuk az adatbázist.
 
 ezek után nyissuk meg a Terminal-t a bal felső sor utolsó előtti elemében és kattintsunk a new terminal-ra.
 ezek után írjuk be a következő commandokat
@@ -64,6 +70,9 @@ ezzel létrehoztuk az adatbázist
 ezek után töltsük fel a teszt adatokat a következő commandal
 
 $ npx prisma db seed
+
+ezzel két teszt felhasználót kapunk egy ADMIN felhasználót aminek a Felhasználóneve: admin , Jelszava pedig: Adminpass123!
+és egy USER felhasználót aminek a Felhasználóneve: Proba1 , Jelszava pedig: Proba123!
 
 ezzel kész is van a projektnek az előkészítése
 
